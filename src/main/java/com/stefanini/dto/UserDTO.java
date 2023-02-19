@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class UserDTO {
-    private Long idUsuario;
+    private Long id;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
@@ -41,10 +41,10 @@ public class UserDTO {
     @Email
     private String email;
 
-    public UserDTO() {}
+    public UserDTO(){}
 
-    public void UsuarioDTO(UserEntity usuarioEntity) {
-        this.idUsuario = usuarioEntity.getId();
+    public UserDTO(UserEntity usuarioEntity) {
+        this.id = usuarioEntity.getId();
         this.nome = usuarioEntity.getNome();
         this.login = usuarioEntity.getLogin();
         this.senha = usuarioEntity.getSenha();
@@ -55,11 +55,11 @@ public class UserDTO {
     }
 
     public Long getId() {
-        return idUsuario;
+        return id;
     }
 
     public void setId(Long idUsuario) {
-        this.idUsuario = idUsuario;
+        this.id = idUsuario;
     }
 
     public String getNome() {
